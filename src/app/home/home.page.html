@@ -1,20 +1,89 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-title class="title">Calculadora Científica</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding calculator-container">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <!-- Área de resultados -->
+  <div class="display">
+    <h2 class="expression">{{ expression || '0' }}</h2>
+    <h1 class="result"> {{ result }}</h1>
   </div>
+
+  <!-- Teclado -->
+  <ion-grid class="keyboard">
+
+    <!-- Primera fila -->
+    <ion-row>
+      <ion-col size="3"><ion-button class="round-btn beige-btn" expand="block"
+                    (click)="press('7')">7</ion-button></ion-col>
+      <ion-col size="3"><ion-button class="round-btn beige-btn" expand="block"
+                    (click)="press('8')">8</ion-button></ion-col>
+      <ion-col size="3"><ion-button class="round-btn beige-btn" expand="block"
+                    (click)="press('9')">9</ion-button></ion-col>
+      <ion-col size="3"><ion-button class="round-btn beige-btn" expand="block"
+                    (click)="press('/')">/</ion-button></ion-col>
+    </ion-row>
+
+    <!-- Segunda fila -->
+    <ion-row>
+      <ion-col size="3"><ion-button class="round-btn beige-btn" expand="block"
+                    (click)="press('4')">4</ion-button></ion-col>
+      <ion-col size="3"><ion-button class="round-btn beige-btn" expand="block"
+                    (click)="press('5')">5</ion-button></ion-col>
+      <ion-col size="3"><ion-button class="round-btn beige-btn" expand="block"
+                    (click)="press('6')">6</ion-button></ion-col>
+      <ion-col size="3"><ion-button class="round-btn beige-btn" expand="block"
+                    (click)="press('*')">*</ion-button></ion-col>
+    </ion-row>
+
+    <!-- Tercera fila -->
+    <ion-row>
+      <ion-col size="3"><ion-button class="round-btn beige-btn" expand="block"
+                    (click)="press('1')">1</ion-button></ion-col>
+      <ion-col size="3"><ion-button class="round-btn beige-btn" expand="block"
+                    (click)="press('2')">2</ion-button></ion-col>
+      <ion-col size="3"><ion-button class="round-btn beige-btn" expand="block"
+                    (click)="press('3')">3</ion-button></ion-col>
+      <ion-col size="3"><ion-button class="round-btn beige-btn" expand="block"
+                    (click)="press('-')">-</ion-button></ion-col>
+    </ion-row>
+
+    <!-- Cuarta fila -->
+    <ion-row>
+      <ion-col size="3"><ion-button class="round-btn beige-btn" expand="block"
+                    (click)="press('0')">0</ion-button></ion-col>
+      <ion-col size="3"><ion-button class="round-btn beige-btn" expand="block"
+                    (click)="press('%')">%</ion-button></ion-col>
+      <ion-col size="3"><ion-button class="round-btn accent-btn" expand="block" (click)="clear()">C</ion-button></ion-col>
+
+      <ion-col size="3"><ion-button class="round-btn beige-btn" expand="block"
+                    (click)="press('+')">+</ion-button></ion-col>
+    </ion-row>
+
+    <!-- Operaciones científicas -->
+    <ion-row>
+      <ion-col size="3"><ion-button class="round-btn dark-btn" expand="block"
+                    (click)="press('√')">√</ion-button></ion-col>
+      <ion-col size="3"><ion-button class="round-btn dark-btn" expand="block"
+                    (click)="press('log')">log</ion-button></ion-col>
+      <ion-col size="3"><ion-button class="round-btn dark-btn" expand="block"
+                    (click)="press('^')">^</ion-button></ion-col>
+      <ion-col size="3"><ion-button class="round-btn dark-btn" expand="block"
+                    (click)="press('=')">=</ion-button></ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="4"><ion-button class="round-btn dark-btn" expand="block"
+                    (click)="press('sin')">sin</ion-button></ion-col>
+      <ion-col size="4"><ion-button class="round-btn dark-btn" expand="block"
+                    (click)="press('cos')">cos</ion-button></ion-col>
+      <ion-col size="4"><ion-button class="round-btn dark-btn" expand="block"
+                    (click)="press('tan')">tan</ion-button></ion-col>
+    </ion-row>
+
+  </ion-grid>
+
 </ion-content>
