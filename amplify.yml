@@ -6,6 +6,7 @@ frontend:
         - nvm install 20.19.0
         - nvm use 20.19.0
         - npm ci
+        - npm install -g @ionic/cli
     build:
       commands:
         - ionic build --prod
@@ -13,6 +14,3 @@ frontend:
     baseDirectory: www
     files:
       - "**/*"
-  cache:
-    paths:
-      - node_modules/**/*
